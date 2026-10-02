@@ -91,10 +91,15 @@ export async function GET(request: Request) {
       ads: [],
     };
 
+    // Cache API 显式缓存：CF Pages Functions 响应默认 DYNAMIC 不缓存，Cache-Control 头无效
+    const cache = caches.default;
+    const cacheKey = new URL(request.url).toString();
+    const cached = await cache.match(cacheKey);
+    if (cached) return cached;
+
     return NextResponse.json(payload, {
       headers: {
-        // s-maxage 由 0 改为 600：允许 CF 边缘缓存 10 分钟，TV 端拉配置/验证秒开
-        //（改源后最长 10 分钟生效，可接受；客户端 max-age 仍按 cacheTime）
+        // 缓存 10 分钟：TV 端拉配置/验证秒开（改源后最长 10 分钟生效）
         'Cache-Control': `public, max-age=${cacheTime}, s-maxage=600`,
       },
     });

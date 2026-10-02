@@ -12,7 +12,6 @@ async function fetchHtml(url: string): Promise<string> {
       "User-Agent": UA,
       "Accept-Language": "zh-CN,zh;q=0.9",
     },
-    cf: { cacheTtl: 300 } as any,
   });
   if (!res.ok) throw new Error(`红果 ${res.status}`);
   return await res.text();

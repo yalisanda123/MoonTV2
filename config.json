@@ -77,5 +77,12 @@
       "name": "非凡影视",
       "api": "http://ffzy5.tv/api.php/provide/vod"
     }
-  }
+  },
+  "custom_category": [
+    {
+      "name": "短剧",
+      "type": "tv",
+      "query": "短剧"
+    }
+  ]
 }

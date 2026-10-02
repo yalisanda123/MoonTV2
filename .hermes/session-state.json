@@ -1,6 +1,6 @@
 {
   "project_name": "moontv2-repo",
-  "last_updated": "2026-10-02T16:07:31.120554+00:00",
+  "last_updated": "2026-10-02T16:17:37.454069+00:00",
   "events": [
     {
       "ts": "2026-10-02T16:07:19.863589+00:00",
@@ -10,6 +10,30 @@
     },
     {
       "ts": "2026-10-02T16:07:31.120554+00:00",
+      "action": "patch",
+      "file": "src\\app\\api\\tvbox\\config\\route.ts",
+      "summary": "修改 route.ts"
+    },
+    {
+      "ts": "2026-10-02T16:12:52.464837+00:00",
+      "action": "patch",
+      "file": "src\\app\\api\\server-config\\route.ts",
+      "summary": "修改 route.ts"
+    },
+    {
+      "ts": "2026-10-02T16:13:01.943358+00:00",
+      "action": "patch",
+      "file": "src\\app\\api\\tvbox\\config\\route.ts",
+      "summary": "修改 route.ts"
+    },
+    {
+      "ts": "2026-10-02T16:17:37.305174+00:00",
+      "action": "patch",
+      "file": "src\\app\\api\\server-config\\route.ts",
+      "summary": "修改 route.ts"
+    },
+    {
+      "ts": "2026-10-02T16:17:37.454069+00:00",
       "action": "patch",
       "file": "src\\app\\api\\tvbox\\config\\route.ts",
       "summary": "修改 route.ts"

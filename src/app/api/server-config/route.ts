@@ -8,7 +8,7 @@ export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   // Cache API 显式缓存（CF Pages Functions 响应默认不缓存，Cache-Control 头无效）
-  const cache = caches.default;
+  const cache = (caches as any).default; // caches.default 是 CF Workers 专有，DOM 类型无此属性
   const cacheKey = new URL(request.url).toString();
   const cached = await cache.match(cacheKey);
   if (cached) return cached;

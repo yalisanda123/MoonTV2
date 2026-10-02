@@ -93,7 +93,9 @@ export async function GET(request: Request) {
 
     return NextResponse.json(payload, {
       headers: {
-        'Cache-Control': `public, max-age=${cacheTime}, s-maxage=0`,
+        // s-maxage 由 0 改为 600：允许 CF 边缘缓存 10 分钟，TV 端拉配置/验证秒开
+        //（改源后最长 10 分钟生效，可接受；客户端 max-age 仍按 cacheTime）
+        'Cache-Control': `public, max-age=${cacheTime}, s-maxage=600`,
       },
     });
   } catch (e) {

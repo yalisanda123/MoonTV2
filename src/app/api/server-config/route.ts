@@ -14,5 +14,8 @@ export async function GET(request: NextRequest) {
     SiteName: config.SiteConfig.SiteName,
     StorageType: process.env.NEXT_PUBLIC_STORAGE_TYPE || 'localstorage',
   };
-  return NextResponse.json(result);
+  // 验证接口缓存 10 分钟：TV 端启动「验证服务器配置」时秒开（避免边缘冷启动 2-6s 转圈）
+  return NextResponse.json(result, {
+    headers: { 'Cache-Control': 'public, max-age=600, s-maxage=600' },
+  });
 }
